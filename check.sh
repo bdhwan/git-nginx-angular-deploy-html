@@ -28,6 +28,8 @@ fi
 echo $SOURCE
 
 cd $SOURCE
+ng config -g cli.warnings.versionMismatch false
+
 npm install
 
 export NG_CLI_ANALYTICS=ci
