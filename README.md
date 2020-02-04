@@ -1,16 +1,28 @@
 # nginx-git-html
+```
 version: "3.3"
 services:
-  beta-user:
-    hostname: 'beta-user'
-    image: bdhwan/nginx-git-html:3.7
+  build-html:
+    image: bdhwan/git-nginx-angular-deploy-html:0.1
     environment:
     - GIT_URL=some_git_url_with_id_pw_if_need
-    - DST_FOLDER=root_folder_from_git_url
     ports:
     - "8010:80"
-    deploy:
-      placement:
-        constraints:
-        - node.labels.html_user == html_user 
-        
+```
+
+GIT_URL: 앵귤러 js 소스파일의 레파지토리  
+
+
+
+과정  
+1. 소스코드 클론  
+2. npm install  
+3. ng build --prod --aot  
+4. 생성된 결과물을 nginx html 폴더에 이동  
+
+
+
+**angular.json 의 outputPath를 반드시 www로 해야함**  
+"outputPath": "www",
+
+
