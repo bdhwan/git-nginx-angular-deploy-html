@@ -26,9 +26,10 @@ RUN rm -rf /etc/nginx/sites-available/default
 ADD default /etc/nginx/sites-available/default
 ADD check.sh /home/check.sh
 RUN chmod 777 /home/check.sh
+RUN rm -rf /var/www/html
 WORKDIR /home
 
-HEALTHCHECK --interval=60s --timeout=3s --retries=60 CMD curl --fail http://localhost || exit 1
+
 ENTRYPOINT ["/bin/sh", "check.sh"]
 
 
