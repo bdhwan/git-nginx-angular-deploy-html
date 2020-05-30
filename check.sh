@@ -33,7 +33,7 @@ ng config -g cli.warnings.versionMismatch false
 npm install
 
 export NG_CLI_ANALYTICS=ci
-ng build --prod --aot --max-old-space-size=2192
+ng build --prod --aot
 
 
 mv www /var/www/html
