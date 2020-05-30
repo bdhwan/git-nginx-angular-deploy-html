@@ -33,10 +33,9 @@ ng config -g cli.warnings.versionMismatch false
 npm install
 
 export NG_CLI_ANALYTICS=ci
-ng build --prod --aot
+ng build --prod --aot --max-old-space-size=2192
 
 
-rm -rf /var/www/html
 mv www /var/www/html
 
 nginx -g 'daemon off;'
