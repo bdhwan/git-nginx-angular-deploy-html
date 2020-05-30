@@ -30,6 +30,8 @@ RUN rm -rf /var/www/html
 WORKDIR /home
 
 
+EXPOSE 8080 80 443 3000 
+
 ENTRYPOINT ["/bin/sh", "check.sh"]
 
 
